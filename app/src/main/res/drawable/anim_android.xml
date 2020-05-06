@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:drawable="@drawable/ic_android_black_24dp">
 
-    <target
-        android:name="right_arm"
-        android:animation="@android:"/>
+<!--    <target-->
+<!--        android:name="right_arm"-->
+<!--        android:animation="@android:"/>-->
 </animated-vector>

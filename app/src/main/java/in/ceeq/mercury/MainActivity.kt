@@ -1,32 +1,35 @@
 package `in`.ceeq.mercury
 
-import `in`.ceeq.eventannotations.Event
+import `in`.ceeq.mercury.databinding.ActivityMainBinding
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+	private lateinit var viewModel: MainViewModel
+	private lateinit var binding: ActivityMainBinding
 
-        val retrofit = Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(OkHttpClient())
-                .build()
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
 
-        @Event("MainActivity")
-        val postService = retrofit.create(PostService::class.java)
+		binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        postService.post
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe()
-    }
+		val postAdapter = PostAdapter()
+		binding.recyclerView.adapter = postAdapter
+		binding.recyclerView.layoutManager = LinearLayoutManager(this)
+		binding.recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+
+		viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+		viewModel.posts.observe(this, Observer {
+			postAdapter.submitList(it)
+		})
+
+		viewModel.getPosts()
+	}
 }

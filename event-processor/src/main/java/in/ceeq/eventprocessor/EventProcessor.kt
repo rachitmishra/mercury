@@ -2,14 +2,12 @@ package `in`.ceeq.eventprocessor
 
 import `in`.ceeq.eventannotations.Event
 import com.squareup.kotlinpoet.*
-import com.sun.xml.internal.bind.v2.TODO
 import javax.annotation.processing.*
 import javax.lang.model.SourceVersion
 import javax.lang.model.element.AnnotationMirror
 import javax.lang.model.element.Element
 import javax.lang.model.element.ExecutableElement
 import javax.lang.model.element.TypeElement
-import javax.swing.UIManager.put
 
 
 class EventProcessor : AbstractProcessor() {

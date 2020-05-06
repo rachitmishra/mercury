@@ -6,6 +6,10 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/event-annotations/event-annotations.iml" filepath="$PROJECT_DIR$/event-annotations/event-annotations.iml" />
       <module fileurl="file://$PROJECT_DIR$/event-processor/event-processor.iml" filepath="$PROJECT_DIR$/event-processor/event-processor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mercury.iml" filepath="$PROJECT_DIR$/.idea/modules/mercury.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mercury.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mercury.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/event-annotations/mercury.event-annotations.iml" filepath="$PROJECT_DIR$/.idea/modules/event-annotations/mercury.event-annotations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/event-processor/mercury.event-processor.iml" filepath="$PROJECT_DIR$/.idea/modules/event-processor/mercury.event-processor.iml" />
     </modules>
   </component>
 </project>

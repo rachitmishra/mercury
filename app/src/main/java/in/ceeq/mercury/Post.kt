@@ -1,3 +1,5 @@
 package `in`.ceeq.mercury
 
-data class Post(var userId: String, var id: String, var title: String, var body: String)
+import androidx.recyclerview.widget.DiffUtil
+
+data class Post(val userId: String, val id: String, val title: String, val body: String)

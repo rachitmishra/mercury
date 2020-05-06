@@ -1,1 +1,1 @@
-include ':app', ':event-processor', ':event-annotations'
+include ':app' //, ':event-processor', ':event-annotations'
